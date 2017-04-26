@@ -25,71 +25,83 @@ done in your IAM roles. For more information please view: http://docs.aws.amazon
 
 # DynamoDB Configuration
 
-- Goto DynamoDB
-- Create table "sms_messages" with primary key "sid"
+- Create table "sms_messages"
 ![alt tag](./img/config-dynamo-1.png)
-- Create table "voice_calls" with primary key "sid"
+**Please make "sid" the primary key**
+- Create table "voice_calls"
+![alt tag](./img/config-dynamo-1.png)
+**Please also make "sid" the primary key**
 
 # Lambda Configuration
 
-- Goto Lambda Functions
-- Create a lamba function "SMSMessageHandler" with runtime "Python 2.7" and template "Blank"
-- Please select the DynamoDB role you created
-![alt tag](./img/config-lambda-3.png)
+- Create a lamdba function "SMSMessageHandler"
+![alt tag](./img/config-lambda-1.png)
+Please select runtime "Python 2.7" and the IAM role you created
+**Click Save**
 - Add the following code to the inline editor
 ![alt tag](./img/config-lambda-2.png)
-* code available in resources/lambda_functions/sms_message_handler.py
-- Create a lambda function "VoiceCallHandler" with runtime "Python 2.7" and template "Blank"
+*code available in resources/lambda_functions/sms_message_handler.py*
+- Create a lambda function "VoiceCallHandler" 
+Please select the same runtime and IAM role as "SMSMessageHandler"
+**Click Save**
 - Add the following code to the inline editor
 ![alt tag](./img/config-lambda-3.png)
-* code available in resources/lambda_functions/voice_call_handler.py
+*code available in resources/lambda_functions/voice_call_handler.py*
 
 # API Gateway Configuration
 
-- Goto API Gateway
 - Create a new API labeled "TwilioBackend"
 ![alt tag](./img/config-api-1.png)
-- Goto Actions -> Create Resource
-- Create a resource for SMS Messages
+# Creating the "/smsmessage" resource
+- Please click "Actions" -> "Create Resource"
+![alt tag](./img/config-api-13.png)
+- Please use "SMSMessage" for the resource name
 ![alt tag](./img/config-api-2.png)
 - Click the "/smsmessage" endpoint
 ![alt tag](./img/config-api-3.png)
-- Goto Actions -> Create Method
-- Please select "POST"
-- Please use Lambda Function "SMSMessageHandler"
+- Please click "Actions" -> "Create Method"
+**Select method POST**
+You will need to pick the lambda function you created earlier.
 ![alt tag](./img/config-api-4.png)
-- Click Save
+*Use use Lambda Function "SMSMessageHandler"*
+**Click Save**
 - Goto "Integration Request"
 ![alt tag](./img/config-api-5.png)
-- Click "Body Mapping Templates"
-- Add a template for "application/x-www-form-urlencoded"
+*Click "Body Mapping Templates'*
+*Add a template for "application/x-www-form-urlencoded"*
 ![alt tag](./img/config-api-6.png)
-- For the template contents please use
+- Add the following code to the textbox
 ![alt tag](./img/config-api-7.png)
-* code available in resources/api_gateway_templates/endpoint_body_mapper.json
-- Click Save
+*code available in resources/api_gateway_templates/endpoint_body_mapper.json*
+**Click Save**
 - Goto "Integration Response"
 ![alt tag](./img/config-api-11.png)
-- Click "Body Mapping Templates"
-- Please create a default mapping of "application/xml" and make the content blank
+*Click "Body Mapping Templates"*
+*Add a template for 'application/xml'. Please make the body blan*
 ![alt tag](./img/config-api-12.png)
-- Goto Actions -> Create Resource
-- Create a resource for Voice Calls
-![alt tag](./img/config-api-8.png)
-* Please make sure you create the resource under the "/" root endpoint
+
+# Creating the "/voicecall" resource
+**Please make sure you create the resource under the "/" root endpoint**
+![alt tag](./img/config-api-14.png)
+- Please click "Actions" -> "Create Resource"
+- Please use "VoiceCall" for the resource name
+![alt tag](./img/config-api-15.png)
 - Click the "/voicecall" endpoint
-- Goto Actions -> Create Method
+- Please click "Actions" -> "Create Method"
 - Please select "POST"
 - Please use Lambda Function "VoiceCallHandler"
 - Please setup the "Integration Request" the same as "SMSMessageHandler"
-- Goto Actions -> "Deploy API"
-- Please use a deployment stage or create one
+- Please setup the "Integration Response" the same as "SMSMessageHandler"
+# Deploying API
+- Please click "Actions" -> "Deploy API"
 ![alt tag](./img/config-api-9.png)
-- Click "Deploy"
+*Please use a deployment stage or create one*
+**Click Deploy**
 - Copy the "Invoke URL"
 ![alt tag](./img/config-api-10.png)
-* You will need to use endpoints "/smsmessage" and "/voicecall" so your
-endpoints will need to look like:
+
+*You will need to use endpoints "/smsmessage" and "/voicecall" so your
+endpoints will need to look like:*
 
 SMS Messages
 ```
@@ -103,8 +115,8 @@ https://oo0tgkx9t1.execute-api.us-west-2.amazonaws.com/development/voicecall
 
 # Twilio Configuration 
 
-- Please goto Phone Numbers
-- Please click into a Phone Number
+- Login to Twilio
+- Please go to "Phone Numbers" and click the phone number
 - Configure "Voice & Fax" with Incoming URL
 ![alt tag](./img/config-twilio-1.png)
 - Configure "Messaging" with Incoming URL
