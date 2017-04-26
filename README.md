@@ -33,6 +33,7 @@ Please follow the steps below to configure DynamoDB correctly.
 **Please make "sid" the primary key and click 'Create'**
 
 - Create another table "voice_calls"
+
 **Please make the primary key "sid", the same as "sms_messages" and click "Create"**
 
 ## When your tables are created. DynamoDB should look like
@@ -46,9 +47,10 @@ handlers. Please follow the steps to setup your Lambda
 functions correctly.
 
 - Create a lambda function
-![alt tag](./img/config-lambda-1.png)
+![alt tag](./img/config-lambda-4.png)
 **Please use "Python 2.7" as the runtime, and click "Blank Function"**
-*Please do NOT setup any triggers*
+
+You will need to setup "triggers". Please click "Next" at this step
 
 - Configure the lamdba function.
 ![alt tag](./img/config-lambda-1.png)
@@ -61,13 +63,20 @@ Then click "Save"*
 ![alt tag](./img/config-lambda-2.png)
 *code available in resources/lambda_functions/sms_message_handler.py*
 
-- Create a lambda function "VoiceCallHandler" 
+- Create another lambda function "VoiceCallHandler" 
+
 *Please select the same runtime and IAM role as "SMSMessageHandler" 
-and click "Save"*
+and follow the same steps as "SMSMessageHandler"*
+
+## In the editor screen
 
 - Add the following code to the inline editor
+
 ![alt tag](./img/config-lambda-3.png)
 *code available in resources/lambda_functions/voice_call_handler.py*
+
+Your lambda functions are now ready.
+
 
 # API Gateway Configuration
 
@@ -89,28 +98,31 @@ follow the steps below to create the API.
 - Click the "/smsmessage" endpoint
 ![alt tag](./img/config-api-3.png)
 
-- Please click "Actions" -> "Create Method"
-**Select method POST**
+- Please create a "POST" method. Click "Actions" -> "Create Method"
+![alt tag](./img/config-api-17.png)
+
 You will need to pick the lambda function you created earlier.
-![alt tag](./img/config-api-4.png)
+![alt tag](./img/config-api-18.png)
 *Use Lambda Function "SMSMessageHandler" and click "Save"*
 
 - Please goto "Integration Request"
 ![alt tag](./img/config-api-5.png)
-*Click "Body Mapping Templates'*
-*Add a template for "application/x-www-form-urlencoded"*
-![alt tag](./img/config-api-6.png)
 
-- Add the following code to the textbox
+## You will need to add a "Body Mapping Template'
+- Please create a template for "application/x-www-form-urlencoded"
+![alt tag](./img/config-api-6.png)
+*Please select 'Never' for 'Request body passthrough*
+
+- Add the following code to the textbox and save
 ![alt tag](./img/config-api-7.png)
-*Please click "Save"*
 *code available in resources/api_gateway_templates/endpoint_body_mapper.json*
 
 - Please goto "Integration Response"
 ![alt tag](./img/config-api-11.png)
-*Click "Body Mapping Templates"*
-*Add a template for 'application/xml'. Please make the body blank*
+## You will need to add another 'Body Mapping Template'
+- Please create a template for "application/xml"
 ![alt tag](./img/config-api-12.png)
+*Please keep this template blank and save*
 
 # Creating the "/voicecall" resource
 **Please make sure you create the resource under the "/" root endpoint**
