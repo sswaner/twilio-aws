@@ -64,9 +64,7 @@ Then click "Save"*
 *code available in resources/lambda_functions/sms_message_handler.py*
 
 ## Creating the "VoiceCallHandler"
-
-- Create another lambda function
-*Please title this function "VoiceCallHandler" and repeat the same steps as "SMSMessageHandler'*
+*Please create another function and title this function "VoiceCallHandler" then repeat the same steps as "SMSMessageHandler'*
 
 ## In the editor screen
 
@@ -100,7 +98,6 @@ follow the steps below to create the API.
 - Please create a "POST" method. Click "Actions" -> "Create Method"
 ![alt tag](./img/config-api-17.png)
 
-You will need to pick the lambda function you created earlier.
 ![alt tag](./img/config-api-18.png)
 *Use Lambda Function "SMSMessageHandler" and click "Save"*
 
@@ -133,9 +130,7 @@ You will need to pick the lambda function you created earlier.
 - Please use "VoiceCall" for the resource name
 ![alt tag](./img/config-api-15.png)
 
-- Please create a "POST" method for this endpoint
-
-*Please set this POST method the same way was "/smsmessage'*
+*Please create a "POST" method for this endpoint*
 
 # Deploying API
 
