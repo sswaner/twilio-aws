@@ -75,8 +75,7 @@ and follow the same steps as "SMSMessageHandler"*
 ![alt tag](./img/config-lambda-3.png)
 *code available in resources/lambda_functions/voice_call_handler.py*
 
-Your lambda functions are now ready.
-
+- Please save all changes
 
 # API Gateway Configuration
 
