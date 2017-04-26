@@ -36,7 +36,7 @@ done in your IAM roles. For more information please view: http://docs.aws.amazon
 
 - Create a lamdba function "SMSMessageHandler"
 ![alt tag](./img/config-lambda-1.png)
-Please select runtime "Python 2.7" and the IAM role you created
+*Please select runtime "Python 2.7" and the IAM role you created*
 - Click "Save"
 - Add the following code to the inline editor
 ![alt tag](./img/config-lambda-2.png)
