@@ -34,7 +34,7 @@ Please follow the steps below to configure DynamoDB correctly.
 
 - Create another table "voice_calls"
 
-**Please make the primary key "sid", the same as "sms_messages" and click "Create"**
+*Please make the primary key "sid", the same as "sms_messages" and click "Create"*
 
 ## When your tables are created. DynamoDB should look like
 ![alt tag](./img/config-dynamo-4.png)
@@ -50,7 +50,7 @@ functions correctly.
 ![alt tag](./img/config-lambda-4.png)
 **Please use "Python 2.7" as the runtime, and click "Blank Function"**
 
-You will need to setup "triggers". Please click "Next" at this step
+*You will need to setup "triggers". Please click "Next" at this step*
 
 - Configure the lamdba function.
 ![alt tag](./img/config-lambda-1.png)
@@ -130,16 +130,16 @@ You will need to pick the lambda function you created earlier.
 - Please use "VoiceCall" for the resource name
 ![alt tag](./img/config-api-15.png)
 
-- Click the "/voicecall" endpoint
+- Please create a "POST" method for this endpoint
 
-**Please create a "POST" method for this endpoint and setup the "Integration Request" and "Integration Response"
-the same as "/smsmessage"**
+*Please set this POST method the same way was "/smsmessage'*
 
 # Deploying API
 
 - Please click "Actions" -> "Deploy API"
 
 ![alt tag](./img/config-api-9.png)
+
 *Please use a deployment stage or create one*
 
 - Click "Deploy"
@@ -178,15 +178,12 @@ the Twilio.
 
 - Click "Save"
 
-**AWS and Twilio are now configured. Your DynamoDB should
-log incoming sms and calls**
-
 # Testing
 
 To test please send an SMS message or Call the Twilio number
-used. The logs will be available in "AWS CloudWatch". You
+used. The logs will be available in "AWS CloudWatch" and "Twilio Debugger". You
 should receive entries in your DynamoDB if everything is setup
-correctly
+correctly.
 
 Example of Lambda DB entry
 ![alt tag](./img/config-test-1.png)
