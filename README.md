@@ -28,12 +28,14 @@ done in your IAM roles. For more information please view: http://docs.aws.amazon
 You will need to create two tables "sms_messages" and "voice_calls".
 Please follow the steps below to configure DynamoDB correctly.
 
-- Create table "sms_messages"
+- Create a table "sms_messages"
 ![alt tag](./img/config-dynamo-1.png)
 **Please make "sid" the primary key**
-- Please create table "voice_calls"
+- Create another table "voice_calls"
+**Please use "sid" as the primary key**
 
-**Please use "sid" as the primary key for this table as well**
+When your tables are created. DynamoDB should look like
+![alt tag](./img/config-dynamo-4.png)
 
 # Lambda Configuration
 
