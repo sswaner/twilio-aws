@@ -30,7 +30,7 @@ Please follow the steps below to configure DynamoDB correctly.
 
 - Create a table "sms_messages"
 ![alt tag](./img/config-dynamo-1.png)
-**Please make "sid" the primary key and click 'Create'**
+*Please make "sid" the primary key and click 'Create'*
 
 - Create another table "voice_calls"
 
@@ -48,7 +48,7 @@ functions correctly.
 
 - Create a lambda function
 ![alt tag](./img/config-lambda-4.png)
-**Please use "Python 2.7" as the runtime, and click "Blank Function"**
+*Please use "Python 2.7" as the runtime, and click "Blank Function"*
 
 *You will need to setup "triggers". Please click "Next" at this step*
 
@@ -123,7 +123,9 @@ You will need to pick the lambda function you created earlier.
 *Please keep this template blank and save*
 
 # Creating the "/voicecall" resource
-**Please make sure you create the resource under the "/" root endpoint**
+
+*Please make sure you create the resource under the "/" root endpoint*
+
 ![alt tag](./img/config-api-14.png)
 - Please click "Actions" -> "Create Resource"
 
@@ -185,6 +187,6 @@ used. The logs will be available in "AWS CloudWatch" and "Twilio Debugger". You
 should receive entries in your DynamoDB if everything is setup
 correctly.
 
-Example of Lambda DB entry
+*Example of Lambda DB entry*
 ![alt tag](./img/config-test-1.png)
 
