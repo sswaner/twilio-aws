@@ -129,7 +129,8 @@ follow the steps below to create the API.
 
 ![alt tag](./img/config-api-15.png)
 
-*Please create a "POST" method for this endpoint*
+*Please create a "POST" method for this endpoint and use the same
+"Integration Request", "Integration Response" as "/smsmessage'*
 
 # Deploying API
 
