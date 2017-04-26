@@ -127,7 +127,6 @@ follow the steps below to create the API.
 ![alt tag](./img/config-api-14.png)
 - Please click "Actions" -> "Create Resource"
 
-- Please use "VoiceCall" for the resource name
 ![alt tag](./img/config-api-15.png)
 
 *Please create a "POST" method for this endpoint*
