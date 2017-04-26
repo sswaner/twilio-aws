@@ -30,12 +30,12 @@ Please follow the steps below to configure DynamoDB correctly.
 
 - Create a table "sms_messages"
 ![alt tag](./img/config-dynamo-1.png)
-**Please make "sid" the primary key**
-**Click "Create"**
+**Please make "sid" the primary key and click 'Create'**
+
 - Create another table "voice_calls"
 **Please make the primary key "sid", the same as "sms_messages" and click "Create"**
 
-When your tables are created. DynamoDB should look like
+## When your tables are created. DynamoDB should look like
 ![alt tag](./img/config-dynamo-4.png)
 
 # Lambda Configuration
@@ -45,16 +45,26 @@ and one for incoming calls. The steps below create two
 handlers. Please follow the steps to setup your Lambda
 functions correctly.
 
-- Create a lamdba function "SMSMessageHandler"
+- Create a lambda function
 ![alt tag](./img/config-lambda-1.png)
-*Please select runtime "Python 2.7" and the IAM role you created.
-and click "Save"*
+**Please use "Python 2.7" as the runtime, and click "Blank Function"**
+*Please do NOT setup any triggers*
+
+- Configure the lamdba function.
+![alt tag](./img/config-lambda-1.png)
+*Please use "SMSMessageHandler" as the name, select runtime "Python 2.7" and the IAM role you created. 
+Then click "Save"*
+
+## In the following screen you will need to edit the function.
+
 - Add the following code to the inline editor
 ![alt tag](./img/config-lambda-2.png)
 *code available in resources/lambda_functions/sms_message_handler.py*
+
 - Create a lambda function "VoiceCallHandler" 
 *Please select the same runtime and IAM role as "SMSMessageHandler" 
 and click "Save"*
+
 - Add the following code to the inline editor
 ![alt tag](./img/config-lambda-3.png)
 *code available in resources/lambda_functions/voice_call_handler.py*
@@ -68,27 +78,34 @@ follow the steps below to create the API.
 ![alt tag](./img/config-api-16.png)
 ![alt tag](./img/config-api-1.png)
 *Please select "New API" and use "TwilioBackend" as the "API Name"*
+
 # Creating the "/smsmessage" resource
 - Please click "Actions" -> "Create Resource"
 ![alt tag](./img/config-api-13.png)
+
 - Please use "SMSMessage" for the resource name
 ![alt tag](./img/config-api-2.png)
+
 - Click the "/smsmessage" endpoint
 ![alt tag](./img/config-api-3.png)
+
 - Please click "Actions" -> "Create Method"
 **Select method POST**
 You will need to pick the lambda function you created earlier.
 ![alt tag](./img/config-api-4.png)
 *Use Lambda Function "SMSMessageHandler" and click "Save"*
+
 - Please goto "Integration Request"
 ![alt tag](./img/config-api-5.png)
 *Click "Body Mapping Templates'*
 *Add a template for "application/x-www-form-urlencoded"*
 ![alt tag](./img/config-api-6.png)
+
 - Add the following code to the textbox
 ![alt tag](./img/config-api-7.png)
 *Please click "Save"*
 *code available in resources/api_gateway_templates/endpoint_body_mapper.json*
+
 - Please goto "Integration Response"
 ![alt tag](./img/config-api-11.png)
 *Click "Body Mapping Templates"*
@@ -99,8 +116,10 @@ You will need to pick the lambda function you created earlier.
 **Please make sure you create the resource under the "/" root endpoint**
 ![alt tag](./img/config-api-14.png)
 - Please click "Actions" -> "Create Resource"
+
 - Please use "VoiceCall" for the resource name
 ![alt tag](./img/config-api-15.png)
+
 - Click the "/voicecall" endpoint
 **Please create a "POST" method for this endpoint and setup the "Integration Request" and "Integration Response"
 the same as "/smsmessage"**
@@ -109,7 +128,9 @@ the same as "/smsmessage"**
 - Please click "Actions" -> "Deploy API"
 ![alt tag](./img/config-api-9.png)
 *Please use a deployment stage or create one*
+
 - Click "Deploy"
+
 - Copy the "Invoke URL"
 ![alt tag](./img/config-api-10.png)
 
@@ -133,11 +154,15 @@ from the AWS API Gateway. Please follow these steps to setup
 the Twilio.
 
 - Please go to your "Twilio Console"
+
 - Please go to "Phone Numbers" and click this phone number
+
 - Configure "Voice & Fax" with Incoming URL
 ![alt tag](./img/config-twilio-1.png)
+
 - Configure "Messaging" with Incoming URL
 ![alt tag](./img/config-twilio-2.png)
+
 - Click "Save"
 
 **AWS and Twilio are now configured. Your DynamoDB should
