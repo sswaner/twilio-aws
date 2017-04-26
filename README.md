@@ -29,8 +29,7 @@ done in your IAM roles. For more information please view: http://docs.aws.amazon
 ![alt tag](./img/config-dynamo-1.png)
 **Please make "sid" the primary key**
 - Create table "voice_calls"
-![alt tag](./img/config-dynamo-1.png)
-**Please also make "sid" the primary key**
+**Please also use "sid" as the primary key**
 
 # Lambda Configuration
 
