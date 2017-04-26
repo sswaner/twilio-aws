@@ -36,14 +36,14 @@ done in your IAM roles. For more information please view: http://docs.aws.amazon
 
 - Create a lamdba function "SMSMessageHandler"
 ![alt tag](./img/config-lambda-1.png)
-*Please select runtime "Python 2.7" and the IAM role you created*
-- Click "Save"
+*Please select runtime "Python 2.7" and the IAM role you created.
+and click "Save"*
 - Add the following code to the inline editor
 ![alt tag](./img/config-lambda-2.png)
 *code available in resources/lambda_functions/sms_message_handler.py*
 - Create a lambda function "VoiceCallHandler" 
-Please select the same runtime and IAM role as "SMSMessageHandler"
-- Click "Save"
+*Please select the same runtime and IAM role as "SMSMessageHandler" 
+and click "Save"*
 - Add the following code to the inline editor
 ![alt tag](./img/config-lambda-3.png)
 *code available in resources/lambda_functions/voice_call_handler.py*
@@ -65,21 +65,20 @@ Please select the same runtime and IAM role as "SMSMessageHandler"
 **Select method POST**
 You will need to pick the lambda function you created earlier.
 ![alt tag](./img/config-api-4.png)
-*Use use Lambda Function "SMSMessageHandler"*
-- Click "Save"
-- Goto "Integration Request"
+*Use Lambda Function "SMSMessageHandler" and click "Save"*
+- Please goto "Integration Request"
 ![alt tag](./img/config-api-5.png)
 *Click "Body Mapping Templates'*
 *Add a template for "application/x-www-form-urlencoded"*
 ![alt tag](./img/config-api-6.png)
 - Add the following code to the textbox
 ![alt tag](./img/config-api-7.png)
+*Please click "Save"*
 *code available in resources/api_gateway_templates/endpoint_body_mapper.json*
-- Click "Save"
-- Goto "Integration Response"
+- Please goto "Integration Response"
 ![alt tag](./img/config-api-11.png)
 *Click "Body Mapping Templates"*
-*Add a template for 'application/xml'. Please make the body blan*
+*Add a template for 'application/xml'. Please make the body blank*
 ![alt tag](./img/config-api-12.png)
 
 # Creating the "/voicecall" resource
