@@ -31,8 +31,9 @@ Please follow the steps below to configure DynamoDB correctly.
 - Create a table "sms_messages"
 ![alt tag](./img/config-dynamo-1.png)
 **Please make "sid" the primary key**
+**Click "Create"**
 - Create another table "voice_calls"
-**Please use "sid" as the primary key**
+**Please make the primary key "sid", the same as "sms_messages" and click "Create"**
 
 When your tables are created. DynamoDB should look like
 ![alt tag](./img/config-dynamo-4.png)
