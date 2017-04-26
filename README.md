@@ -25,6 +25,9 @@ done in your IAM roles. For more information please view: http://docs.aws.amazon
 
 # DynamoDB Configuration
 
+You will need to create two tables "sms_messages" and "voice_calls".
+Please follow the steps below to configure DynamoDB correctly.
+
 - Create table "sms_messages"
 ![alt tag](./img/config-dynamo-1.png)
 **Please make "sid" the primary key**
@@ -33,6 +36,11 @@ done in your IAM roles. For more information please view: http://docs.aws.amazon
 **Please use "sid" as the primary key for this table as well**
 
 # Lambda Configuration
+
+You will need two Lambda functions. One for incoming SMS,
+and one for incoming calls. The steps below create two
+handlers. Please follow the steps to setup your Lambda
+functions correctly.
 
 - Create a lamdba function "SMSMessageHandler"
 ![alt tag](./img/config-lambda-1.png)
@@ -49,6 +57,9 @@ and click "Save"*
 *code available in resources/lambda_functions/voice_call_handler.py*
 
 # API Gateway Configuration
+
+We need one API. This will be used for both calls and SMS. Please
+follow the steps below to create the API.
 
 - Create a new API
 ![alt tag](./img/config-api-16.png)
@@ -114,8 +125,12 @@ https://oo0tgkx9t1.execute-api.us-west-2.amazonaws.com/development/voicecall
 
 # Twilio Configuration 
 
-- Login to Twilio
-- Please go to "Phone Numbers" and click the phone number
+The Twilio account will need to be assigned the webhooks we copied
+from the AWS API Gateway. Please follow these steps to setup
+the Twilio.
+
+- Please go to your "Twilio Console"
+- Please go to "Phone Numbers" and click this phone number
 - Configure "Voice & Fax" with Incoming URL
 ![alt tag](./img/config-twilio-1.png)
 - Configure "Messaging" with Incoming URL
