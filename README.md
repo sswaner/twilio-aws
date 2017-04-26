@@ -63,9 +63,10 @@ Then click "Save"*
 ![alt tag](./img/config-lambda-2.png)
 *code available in resources/lambda_functions/sms_message_handler.py*
 
-- Create another lambda function "VoiceCallHandler" 
+## Creating the "VoiceCallHandler"
 
-*Please select the same runtime and IAM role as "SMSMessageHandler" and follow the same steps as "SMSMessageHandler"*
+- Create another lambda function
+*Please title this function "VoiceCallHandler" and repeat the same steps as "SMSMessageHandler'*
 
 ## In the editor screen
 
