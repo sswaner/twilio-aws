@@ -37,21 +37,23 @@ done in your IAM roles. For more information please view: http://docs.aws.amazon
 - Create a lamdba function "SMSMessageHandler"
 ![alt tag](./img/config-lambda-1.png)
 Please select runtime "Python 2.7" and the IAM role you created
-**Click Save**
+- Click "Save"
 - Add the following code to the inline editor
 ![alt tag](./img/config-lambda-2.png)
 *code available in resources/lambda_functions/sms_message_handler.py*
 - Create a lambda function "VoiceCallHandler" 
 Please select the same runtime and IAM role as "SMSMessageHandler"
-**Click Save**
+- Click "Save"
 - Add the following code to the inline editor
 ![alt tag](./img/config-lambda-3.png)
 *code available in resources/lambda_functions/voice_call_handler.py*
 
 # API Gateway Configuration
 
-- Create a new API labeled "TwilioBackend"
+- Create a new API
+![alt tag](./img/config-api-16.png)
 ![alt tag](./img/config-api-1.png)
+*Please select "New API" and use "TwilioBackend" as the "API Name"*
 # Creating the "/smsmessage" resource
 - Please click "Actions" -> "Create Resource"
 ![alt tag](./img/config-api-13.png)
@@ -64,7 +66,7 @@ Please select the same runtime and IAM role as "SMSMessageHandler"
 You will need to pick the lambda function you created earlier.
 ![alt tag](./img/config-api-4.png)
 *Use use Lambda Function "SMSMessageHandler"*
-**Click Save**
+- Click "Save"
 - Goto "Integration Request"
 ![alt tag](./img/config-api-5.png)
 *Click "Body Mapping Templates'*
@@ -73,7 +75,7 @@ You will need to pick the lambda function you created earlier.
 - Add the following code to the textbox
 ![alt tag](./img/config-api-7.png)
 *code available in resources/api_gateway_templates/endpoint_body_mapper.json*
-**Click Save**
+- Click "Save"
 - Goto "Integration Response"
 ![alt tag](./img/config-api-11.png)
 *Click "Body Mapping Templates"*
@@ -87,16 +89,14 @@ You will need to pick the lambda function you created earlier.
 - Please use "VoiceCall" for the resource name
 ![alt tag](./img/config-api-15.png)
 - Click the "/voicecall" endpoint
-- Please click "Actions" -> "Create Method"
-- Please select "POST"
-- Please use Lambda Function "VoiceCallHandler"
-- Please setup the "Integration Request" the same as "SMSMessageHandler"
-- Please setup the "Integration Response" the same as "SMSMessageHandler"
+**Please create a "POST" method for this endpoint and setup the "Integration Request" and "Integration Response"
+the same as "/smsmessage"**
+
 # Deploying API
 - Please click "Actions" -> "Deploy API"
 ![alt tag](./img/config-api-9.png)
 *Please use a deployment stage or create one*
-**Click Deploy**
+- Click "Deploy"
 - Copy the "Invoke URL"
 ![alt tag](./img/config-api-10.png)
 
@@ -122,6 +122,9 @@ https://oo0tgkx9t1.execute-api.us-west-2.amazonaws.com/development/voicecall
 - Configure "Messaging" with Incoming URL
 ![alt tag](./img/config-twilio-2.png)
 - Click "Save"
+
+**AWS and Twilio are now configured. Your DynamoDB should
+log incoming sms and calls**
 
 # Testing
 
