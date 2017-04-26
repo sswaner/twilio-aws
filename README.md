@@ -28,8 +28,8 @@ done in your IAM roles. For more information please view: http://docs.aws.amazon
 - Create table "sms_messages"
 ![alt tag](./img/config-dynamo-1.png)
 **Please make "sid" the primary key**
-- Create table "voice_calls"
-**Please also use "sid" as the primary key**
+- Please create table "voice_calls"
+**Please use "sid" as the primary key for this table as well**
 
 # Lambda Configuration
 
