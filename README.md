@@ -65,8 +65,7 @@ Then click "Save"*
 
 - Create another lambda function "VoiceCallHandler" 
 
-*Please select the same runtime and IAM role as "SMSMessageHandler" 
-and follow the same steps as "SMSMessageHandler"*
+*Please select the same runtime and IAM role as "SMSMessageHandler" and follow the same steps as "SMSMessageHandler"*
 
 ## In the editor screen
 
@@ -132,11 +131,14 @@ You will need to pick the lambda function you created earlier.
 ![alt tag](./img/config-api-15.png)
 
 - Click the "/voicecall" endpoint
+
 **Please create a "POST" method for this endpoint and setup the "Integration Request" and "Integration Response"
 the same as "/smsmessage"**
 
 # Deploying API
+
 - Please click "Actions" -> "Deploy API"
+
 ![alt tag](./img/config-api-9.png)
 *Please use a deployment stage or create one*
 
