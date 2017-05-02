@@ -111,8 +111,7 @@ which will be passed to our Lambda functions. To create the
 - Please go to "Integration Request"
 ![alt tag](./img/config-api-5.png)
 
-## You will need to add a "Body Mapping Template'
-- Please create a template for "application/x-www-form-urlencoded"
+- Please create a "Body Mapping" template for "application/x-www-form-urlencoded"
 ![alt tag](./img/config-api-6.png)
 *Please select 'Never' for 'Request body passthrough*
 
