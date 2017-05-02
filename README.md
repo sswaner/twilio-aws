@@ -116,9 +116,11 @@ which will be passed to our Lambda functions. To create the
 ![alt tag](./img/config-api-6.png)
 *Please select 'Never' for 'Request body passthrough*
 
-- Add the following code to the textbox and save
+- Add the following code to the textbox
 ![alt tag](./img/config-api-7.png)
 *code available in resources/api_gateway_templates/request_body_mapper.json*
+
+- Please save all changes
 
 ## Creating a Integration Response
 
