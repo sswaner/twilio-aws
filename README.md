@@ -113,11 +113,17 @@ follow the steps below to create the API.
 ![alt tag](./img/config-api-7.png)
 *code available in resources/api_gateway_templates/request_body_mapper.json*
 
-- Please goto "Integration Response"
+## Creating a Integration Response
+
+We will need to create a response for our API calls. Since we are
+using Twilio's WebHooks we will be using TwiML. To setup the
+"Integration Response" please use the following steps:
+
+- Please go to "Integration Response"
 
 ![alt tag](./img/config-api-11.png)
 
-
+- Create an "Integration Response"
 ![alt tag](./img/config-api-20.png)
 *You will need to create a Integration Response.
 Please set Lambda response handler to "default" and Method response
@@ -128,17 +134,13 @@ code to '200'*
 
 ## Adding the TwiML Body Mapping template
 
-You will need to add a body mapping response template for
-TwiML. We will create an empty TwiML response.
+- Please click into the Integration and open the "Body Mapping" templates
+tab
 
-To create a body mapping template for the response,
-please click the arrow on the left of the "Integration Response" and
-open the "Body Mapping Templates" tab
-
+- Add a Body Mapping template for "application/xml" 
 ![alt tag](./img/config-api-22.png)
 
-*Please create a body mapping template for 'application/xml' with
-the content seen above. code available in resources/api_gateway_templates/response_body_mapper.xml*
+*code available in resources/api_gateway_templates/response_body_mapper.xml*
 
 - Please save all changes
 
