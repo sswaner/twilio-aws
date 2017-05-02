@@ -101,7 +101,14 @@ follow the steps below to create the API.
 ![alt tag](./img/config-api-18.png)
 *Use Lambda Function "SMSMessageHandler" and click "Save"*
 
-- Please goto "Integration Request"
+## Creating a Integration Request
+
+Our Integration Request will be specific to how Twilio calls
+our API. We will be using "application/x-www-form-urlencoded" parameters
+which will be passed to our Lambda functions. To create the
+"Integration Request" please follow these steps
+
+- Please go to "Integration Request"
 ![alt tag](./img/config-api-5.png)
 
 ## You will need to add a "Body Mapping Template'
@@ -137,7 +144,7 @@ code to '200'*
 - Please click into the Integration and open the "Body Mapping" templates
 tab
 
-- Add a Body Mapping template for "application/xml" 
+- Add a Body Mapping template for "application/xml" and add the following content
 ![alt tag](./img/config-api-22.png)
 
 *code available in resources/api_gateway_templates/response_body_mapper.xml*
