@@ -114,10 +114,14 @@ follow the steps below to create the API.
 *code available in resources/api_gateway_templates/request_body_mapper.json*
 
 - Please goto "Integration Response"
+
+![alt tag](./img/config-api-11.png)
+
+
 ![alt tag](./img/config-api-20.png)
 *You will need to create a Integration Response.
-- Please set Lambda Error Regex to default
-- Please set Method Response Status to "200"
+Please set Lambda response handler to "default" and Method response
+code to '200'*
 
 ![alt tag](./img/config-api-21.png)
 *the "Integration Response" should look like the screen above*
@@ -125,17 +129,18 @@ follow the steps below to create the API.
 ## Adding the TwiML Body Mapping template
 
 You will need to add a body mapping response template for
-TwiML. This will need to be set to a TwiML with no Response
-verbs. 
+TwiML. We will create an empty TwiML response.
 
-To create an "Integration Response" body mapping template please
-click the arrow on the left of the "Integration Response" then
+To create a body mapping template for the response,
+please click the arrow on the left of the "Integration Response" and
 open the "Body Mapping Templates" tab
 
 ![alt tag](./img/config-api-22.png)
 
 *Please create a body mapping template for 'application/xml' with
 the content seen above. code available in resources/api_gateway_templates/response_body_mapper.xml*
+
+- Please save all changes
 
 # Creating the "/voicecall" resource
 
