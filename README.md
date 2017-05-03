@@ -101,24 +101,56 @@ follow the steps below to create the API.
 ![alt tag](./img/config-api-18.png)
 *Use Lambda Function "SMSMessageHandler" and click "Save"*
 
-- Please goto "Integration Request"
+## Creating a Integration Request
+
+Our Integration Request will be specific to how Twilio calls
+our API. We will be using "application/x-www-form-urlencoded" parameters
+which will be passed to our Lambda functions. To create the
+"Integration Request" please follow these steps
+
+- Please go to "Integration Request"
 ![alt tag](./img/config-api-5.png)
 
-## You will need to add a "Body Mapping Template'
-- Please create a template for "application/x-www-form-urlencoded"
+- Please create a "Body Mapping" template for "application/x-www-form-urlencoded"
 ![alt tag](./img/config-api-6.png)
 *Please select 'Never' for 'Request body passthrough*
 
-- Add the following code to the textbox and save
+- Add the following code to the textbox
 ![alt tag](./img/config-api-7.png)
-*code available in resources/api_gateway_templates/endpoint_body_mapper.json*
+*code available in resources/api_gateway_templates/request_body_mapper.json*
 
-- Please goto "Integration Response"
+- Please save all changes
+
+## Creating a Integration Response
+
+We will need to create a response for our API calls. Since we are
+using Twilio's WebHooks we will be using TwiML. To setup the
+"Integration Response" please use the following steps:
+
+- Please go to "Integration Response"
+
 ![alt tag](./img/config-api-11.png)
-## You will need to add another 'Body Mapping Template'
-- Please create a template for "application/xml"
-![alt tag](./img/config-api-12.png)
-*Please keep this template blank and save*
+
+- Create an "Integration Response"
+![alt tag](./img/config-api-20.png)
+*You will need to create a Integration Response.
+Please set Lambda response handler to "default" and Method response
+code to '200'*
+
+![alt tag](./img/config-api-21.png)
+*the "Integration Response" should look like the screen above*
+
+## Adding the TwiML Body Mapping template
+
+- Please click into the Integration and open the "Body Mapping" templates
+tab
+
+- Add a Body Mapping template for "application/xml" and add the following content
+![alt tag](./img/config-api-22.png)
+
+*code available in resources/api_gateway_templates/response_body_mapper.xml*
+
+- Please save all changes
 
 # Creating the "/voicecall" resource
 
